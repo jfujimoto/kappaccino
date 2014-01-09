@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @scrim.player %>
+</p>
+
+<p>
+  <strong>Mmr:</strong>
+  <%= @scrim.mmr %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @scrim.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @scrim.date %>
+</p>
+
+<% if @scrim.user == current_user %>
+	<%= link_to 'Edit', edit_scrim_path(@scrim) %> |
+<% end %>
+<%= link_to 'Back', scrims_path %>

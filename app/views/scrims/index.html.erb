@@ -1,0 +1,37 @@
+<h1>Listing scrims</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Mmr</th>
+      <th>Location</th>
+      <th>User ID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scrims.each do |scrim| %>
+      <tr>
+        <td><%= scrim.player %></td>
+        <td><%= scrim.mmr %></td>
+        <td><%= scrim.location %></td>
+        <td><%= scrim.user_id %></td>
+        <td><%= link_to 'Show', scrim %></td>
+        <% if scrim.user == current_user %>
+          <td><%= link_to 'Edit', edit_scrim_path(scrim) %></td>
+          <td><%= link_to 'Destroy', scrim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Scrim', new_scrim_path %>
+<% end %>
